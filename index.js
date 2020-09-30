@@ -131,69 +131,17 @@ function myCategory() {
     button.addEventListener("click", function (e) {
 
       const selectedCategoryName = e.target.getAttribute("data-id");
-      let filteredMenu = menu.filter(item => item.category === selectedCategoryName )
+      let filteredMenu = menu.filter(item => item.category === selectedCategoryName)
 
-      if (selectedCategoryName === "all"){
+      if (selectedCategoryName === "all") {
         displayMenuItems(menu)
       }
-      else{
+      else {
         displayMenuItems(filteredMenu)
 
       }
     })
   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // filterButtons.forEach(button => {
-  //   button.addEventListener("click",function(e){
-  //     // console.log(event.target);
-  //     menu.filter(item =>{
-  //       const filteredMenu= item.category === e.target.getAttribute("data-id");
-  //       console.log(filteredMenu)
-  //     })
-  //   })
-
-  // })
-
-
-
-
-
-
-  // filterButtons.forEach((buton)=>{
-  //   buton.addEventListener("click",function(e){
-  //     // console.log(e.target.getAttribute("data-id"))
-  //     menu.filter( (item) =>{
-  //       const filteredMenu=item.category === e.target.getAttribute("data-id");
-  //       console.log(filteredMenu)
-
-  //     })
-  //   })
-  // })
-
-
-
-
-
-
-
-
-
 }
 
 
