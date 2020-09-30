@@ -81,11 +81,53 @@ const menu = [
   },
 ];
 
+window.addEventListener("DOMContentLoaded", function () {
+  displayMenuItems();
+  myCategory();
+})
+
+const sectionCenter = document.querySelector(".section-center");
+const buttonContainer = document.querySelector(".btn-container");
+
+function displayMenuItems() {
+  let myMenu = ""
+  menu.forEach((x) => {
+    myMenu += `<article class="menu-item">
+    <img src="${x.img}" alt="menu item" class="photo">
+    <div class="item-info">
+      <header>
+        <h4> ${x.title}</h4>
+        <h4 class="price">$${x.price}</h4>
+      </header>
+      <p class="item-text"> ${x.desc}</p>
+    </div>
+  </article>`;
+  })
+  sectionCenter.innerHTML = myMenu;
+}
 
 
+function myCategory() {
+  let categoryList = [];
+  let categoryContent = `<button type="button" class="filter-btn" data-id="all">all</button>`;
+
+  menu.forEach(item => {
+    if (categoryList.indexOf(item.category) === -1) {
+      categoryList.push(item.category)
+    }
+  })
+
+  categoryList.forEach(item => {
+    categoryContent += `<button type="button" class="filter-btn" data-id="${item}">${item}</button>`
+  })
+
+  buttonContainer.innerHTML = categoryContent
+  // console.log(buttonContainer)
+  // console.log(categoryContent)
+  // menu.filter()
 
 
-
+}
 
 
 
