@@ -82,16 +82,16 @@ const menu = [
 ];
 
 window.addEventListener("DOMContentLoaded", function () {
-  displayMenuItems();
+  displayMenuItems(menu);
   myCategory();
 })
 
 const sectionCenter = document.querySelector(".section-center");
 const buttonContainer = document.querySelector(".btn-container");
 
-function displayMenuItems() {
+function displayMenuItems(myListe) {
   let myMenu = ""
-  menu.forEach((x) => {
+  myListe.forEach((x) => {
     myMenu += `<article class="menu-item">
     <img src="${x.img}" alt="menu item" class="photo">
     <div class="item-info">
@@ -122,9 +122,76 @@ function myCategory() {
   })
 
   buttonContainer.innerHTML = categoryContent
-  // console.log(buttonContainer)
-  // console.log(categoryContent)
-  // menu.filter()
+
+
+
+  const filterButtons = document.querySelectorAll(".filter-btn");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", function (e) {
+
+      const selectedCategoryName = e.target.getAttribute("data-id");
+      let filteredMenu = menu.filter(item => item.category === selectedCategoryName )
+
+      if (selectedCategoryName === "all"){
+        displayMenuItems(menu)
+      }
+      else{
+        displayMenuItems(filteredMenu)
+
+      }
+    })
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // filterButtons.forEach(button => {
+  //   button.addEventListener("click",function(e){
+  //     // console.log(event.target);
+  //     menu.filter(item =>{
+  //       const filteredMenu= item.category === e.target.getAttribute("data-id");
+  //       console.log(filteredMenu)
+  //     })
+  //   })
+
+  // })
+
+
+
+
+
+
+  // filterButtons.forEach((buton)=>{
+  //   buton.addEventListener("click",function(e){
+  //     // console.log(e.target.getAttribute("data-id"))
+  //     menu.filter( (item) =>{
+  //       const filteredMenu=item.category === e.target.getAttribute("data-id");
+  //       console.log(filteredMenu)
+
+  //     })
+  //   })
+  // })
+
+
+
+
+
+
+
 
 
 }
